@@ -2,6 +2,7 @@ Yami-Rewrite
 -
 # List of features
 
+- [x] Base
 - [ ] SuperUser commands
 - [ ] Database
 - [ ] Settings
