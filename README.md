@@ -3,7 +3,7 @@ Yami-Rewrite
 # List of features
 
 - [x] Base
-- [ ] SuperUser commands
+- [x] SuperUser commands
 - [ ] Database
 - [ ] Settings
 - [ ] Starboard

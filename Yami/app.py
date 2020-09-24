@@ -1,6 +1,5 @@
 import logging
 import os
-
 import typing
 
 import hikari
@@ -10,11 +9,11 @@ from Yami.subclasses.bot import Yami
 
 
 async def get_prefix(bot: Yami, message: Message) -> typing.List[str]:
-    prefixes = [bot.me.mention, bot.me.mention + ' ']
+    prefixes = [bot.me.mention, bot.me.mention + " "]
     if message.guild_id:
         bot.logger.warn("per-guild prefixes are not implemented yet.")
     else:
-        prefixes.append('y.')
+        prefixes.append("bb.")
     return prefixes
 
 

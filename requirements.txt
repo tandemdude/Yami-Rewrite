@@ -1,2 +1,2 @@
-hikari>=2.0.0.dev82
-hikari-lightbulb>=0.0.49
+hikari
+hikari-lightbulb
