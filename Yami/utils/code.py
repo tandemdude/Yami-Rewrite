@@ -22,7 +22,7 @@ class Code:
     @staticmethod
     def clean(body):
         match = Code.PATTERN.search(body)
-        return match.groupdict() if match else [None, body]
+        return match.groups() if match else (None, body)
 
     @staticmethod
     def get_syntax_error(error: SyntaxError) -> str:
@@ -33,7 +33,7 @@ class Code:
 
     @staticmethod
     def wrap(body):
-        return "async def __invoke__(bot, env):\n" + textwrap.indent(body, " " * 4)
+        return "async def __invoke__(bot):\n" + textwrap.indent(body, " " * 4)
 
     async def _execute(self):
         start = datetime.now(tz=timezone.utc)
@@ -64,7 +64,7 @@ class Code:
                 env.update(locals())
                 exec(str(self), env)
                 func = env["__invoke__"]
-                res = await func(self.context.bot, env)
+                res = await func(self.context.bot)
                 setattr(self.context.command.plugin, "last_result", res)
                 print(f"- Returned {res}")
             except SyntaxError as e:
