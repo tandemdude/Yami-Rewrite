@@ -8,9 +8,9 @@ from lightbulb import Context, WrappedArg, checks, commands, text_channel_conver
 from lightbulb.errors import NotOwner
 from lightbulb.utils import EmbedNavigator, EmbedPaginator
 
-from Yami.subclasses.bot import Yami
-from Yami.subclasses.plugin import Plugin
-from Yami.utils.converters import code_converter, pluginish_converter
+from yami.subclasses.bot import Yami
+from yami.subclasses.plugin import Plugin
+from yami.utils.converters import code_converter, pluginish_converter
 
 
 class SuperUser(Plugin):

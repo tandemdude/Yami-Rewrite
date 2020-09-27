@@ -3,8 +3,8 @@ import typing
 from lightbulb import Command, Group, WrappedArg
 from lightbulb.errors import ConverterFailure
 
-from Yami.subclasses.plugin import Plugin
-from Yami.utils.code import Code
+from yami.subclasses.plugin import Plugin
+from yami.utils.code import Code
 
 
 async def code_converter(arg: WrappedArg) -> Code:

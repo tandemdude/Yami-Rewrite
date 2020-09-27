@@ -2,7 +2,7 @@ import logging
 
 from lightbulb import plugins
 
-from Yami.subclasses.bot import Yami
+from yami.subclasses.bot import Yami
 
 
 class Plugin(plugins.Plugin):

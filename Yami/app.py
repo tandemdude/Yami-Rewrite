@@ -5,7 +5,7 @@ import typing
 import hikari
 from hikari import Message, UnauthorizedError
 
-from Yami.subclasses.bot import Yami
+from yami.subclasses.bot import Yami
 
 
 async def get_prefix(bot: Yami, message: Message) -> typing.List[str]:

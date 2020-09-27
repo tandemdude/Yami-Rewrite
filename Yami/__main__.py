@@ -1,3 +1,3 @@
-from Yami import app
+from yami import app
 
 app.main()

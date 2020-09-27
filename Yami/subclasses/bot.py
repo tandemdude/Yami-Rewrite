@@ -19,7 +19,7 @@ class Yami(lightBot, hikariBot):
 
     def load_and_reload_extensions(self):
         for plugin in filter(lambda f: f.endswith(".py"), os.listdir("plugins")):
-            plugin = f"Yami.plugins.{plugin[:-3]}"
+            plugin = f"yami.plugins.{plugin[:-3]}"
             try:
                 self.load_extension(plugin)
                 self.logger.info("loaded %s", plugin)
