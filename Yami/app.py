@@ -9,11 +9,11 @@ from yami.subclasses.bot import Yami
 
 
 async def get_prefix(bot: Yami, message: Message) -> typing.List[str]:
-    prefixes = [bot.me.mention, bot.me.mention + " "]
+    prefixes = [f"<@!{bot.me.id}> ", f"{bot.me.mention} "]
     if message.guild_id:
         bot.logger.warn("per-guild prefixes are not implemented yet.")
     else:
-        prefixes.append("bb.")
+        prefixes.append("yr.")
     return prefixes
 
 

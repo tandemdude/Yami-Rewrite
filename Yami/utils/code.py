@@ -94,7 +94,7 @@ class Code:
                 description=f"Result: {page}",
                 timestamp=datetime.now(tz=timezone.utc),
             ).set_footer(
-                text=f"{index}/{len(paginator)}",
+                text=f"Page {index}/{len(paginator)}",
                 icon=self.context.author.avatar_url,
             )
 
@@ -138,7 +138,7 @@ class Code:
                 description=f"Result: {page}",
                 timestamp=datetime.now(tz=timezone.utc),
             ).set_footer(
-                text=f"{index}/{len(paginator)}",
+                text=f"Page {index}/{len(paginator)}",
                 icon=self.context.author.avatar_url,
             )
 
