@@ -1,17 +1,12 @@
 import logging
 import os
-import sys
 
-from hikari import Bot as hikariBot
 from hikari import ShardReadyEvent
-
-# noinspection PyPackageRequirements
 from lightbulb import Bot as lightBot
 from lightbulb.errors import ExtensionAlreadyLoaded, ExtensionError
 
 
-# noinspection PyAbstractClass
-class Yami(lightBot, hikariBot):
+class Bot(lightBot):
     def __init__(self, *args, prefix, **kwargs):
         super().__init__(prefix=prefix, **kwargs)
         self.logger = logging.getLogger("Yami")

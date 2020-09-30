@@ -5,10 +5,10 @@ import typing
 import hikari
 from hikari import Message, UnauthorizedError
 
-from yami.subclasses.bot import Yami
+from yami.subclasses.bot import Bot
 
 
-async def get_prefix(bot: Yami, message: Message) -> typing.List[str]:
+async def get_prefix(bot: Bot, message: Message) -> typing.List[str]:
     prefixes = [f"<@!{bot.me.id}> ", f"{bot.me.mention} "]
     if message.guild_id:
         bot.logger.warn("per-guild prefixes are not implemented yet.")
@@ -18,7 +18,7 @@ async def get_prefix(bot: Yami, message: Message) -> typing.List[str]:
 
 
 def run_bot(token, logger):
-    bot = Yami(
+    bot = Bot(
         prefix=get_prefix,
         token=token,
         insensitive_commands=True,
