@@ -7,8 +7,8 @@ from lightbulb.errors import ExtensionAlreadyLoaded, ExtensionError
 
 
 class Bot(lightBot):
-    def __init__(self, *args, prefix, **kwargs):
-        super().__init__(prefix=prefix, **kwargs)
+    def __init__(self, prefix, *args, **kwargs):
+        super().__init__(*args, prefix=prefix, **kwargs)
         self.logger = logging.getLogger("Yami")
         self.dispatcher.subscribe(ShardReadyEvent, self.on_ready)
 
