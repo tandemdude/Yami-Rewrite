@@ -2,6 +2,7 @@ import logging
 import os
 import typing
 
+import lightbulb
 import hikari
 from hikari import Message, UnauthorizedError
 
@@ -9,12 +10,12 @@ from yami.subclasses.bot import Bot
 
 
 async def get_prefix(bot: Bot, message: Message) -> typing.List[str]:
-    prefixes = [f"<@!{bot.me.id}> ", f"{bot.me.mention} "]
+    prefixes = []
     if message.guild_id:
         bot.logger.warn("per-guild prefixes are not implemented yet.")
     else:
         prefixes.append("yr.")
-    return prefixes
+    return lightbulb.when_mentioned_or(prefixes)
 
 
 def run_bot(token, logger):

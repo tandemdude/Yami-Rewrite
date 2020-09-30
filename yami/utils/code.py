@@ -11,13 +11,24 @@ from datetime import datetime, timezone
 
 import hikari
 import lightbulb
-from lightbulb import Context
 from lightbulb.utils import EmbedNavigator, EmbedPaginator
 
 
 # noinspection PyProtectedMember
 class Code:
     PATTERN = re.compile(r"```(?P<syntax>.*)\n(?P<body>[^`]+?)```")
+
+    def __init__(self, arg: lightbulb.WrappedArg):
+        self.context = arg.context
+        self.original = arg.data
+        self.language, code = self.clean(arg.data)
+        self.code = self.wrap(code)
+        self.success = False
+        self.run: typing.Callable[[], typing.Coroutine] = (
+            self._shell
+            if self.context.invoked_with in ("sh", "shell")
+            else self._execute
+        )
 
     @staticmethod
     def clean(body):
@@ -149,18 +160,6 @@ class Code:
 
         navigator = EmbedNavigator(pages=paginator.build_pages())
         await navigator.run(self.context)
-
-    def __init__(self, code: str, context: Context):
-        self.context = context
-        self.original = code
-        self.language, code = self.clean(code)
-        self.code = self.wrap(code)
-        self.success = False
-        self.run: typing.Callable[[], typing.Coroutine] = (
-            self._shell
-            if self.context.invoked_with in ("sh", "shell")
-            else self._execute
-        )
 
     def __str__(self):
         return self.code

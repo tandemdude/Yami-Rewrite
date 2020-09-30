@@ -10,7 +10,8 @@ from lightbulb.utils import EmbedNavigator, EmbedPaginator
 
 from yami.subclasses.bot import Bot
 from yami.subclasses.plugin import Plugin
-from yami.utils.converters import code_converter, pluginish_converter
+from yami.utils.converters import pluginish_converter
+from yami.utils import code
 
 
 class SuperUser(Plugin):
@@ -27,7 +28,7 @@ class SuperUser(Plugin):
 
     @checks.owner_only()
     @commands.command(aliases=["exec", "evaluate", "eval", "sh", "shell"])
-    async def execute(self, context: Context, *, body: code_converter):
+    async def execute(self, context: Context, *, body: code.Code):
         await body.run()
 
         def check(e: hikari.MessageUpdateEvent):

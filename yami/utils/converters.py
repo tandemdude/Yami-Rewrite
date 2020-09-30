@@ -4,11 +4,6 @@ from lightbulb import Command, Group, WrappedArg
 from lightbulb.errors import ConverterFailure
 
 from yami.subclasses.plugin import Plugin
-from yami.utils.code import Code
-
-
-async def code_converter(arg: WrappedArg) -> Code:
-    return Code(arg.data, arg.context)
 
 
 async def pluginish_converter(arg: WrappedArg) -> typing.Union[Plugin, Group, Command]:
@@ -21,5 +16,4 @@ async def pluginish_converter(arg: WrappedArg) -> typing.Union[Plugin, Group, Co
 
 
 if typing.TYPE_CHECKING:
-    code_converter = Code
     pluginish_converter = typing.Union[Plugin, Group, Command]
